@@ -1,7 +1,16 @@
-## Put comments here that give an overall description of what your
-## functions do
+##  This function takes a matrix argument and creates
+##    a list object which stores the matrix and is capable of caching
+##    the inverse of the matrix. The purpose of the cache is to demonstrate
+##    the use of lexical scope and provide a time saving method
+##    for recalling the inverse matrix.
 
-## Write a short comment describing this function
+## usage:
+##    > my_matrix  <- matrix(c(4, 3, 3, 2), 2, 2)
+##    > my_matrix
+##      [,1] [,2]
+##      [1,]    4    3
+##      [2,]    3    2
+##    > my_mat_obj <- makeCacheMatrix(my_matrix)
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -17,8 +26,16 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
+## This function:
+## cacheSolve takes a makeCacheMatrix as an argument
+##     if the inverse is not cached it will
+##        1. calculate the inverse via solve()
+##        2. cache the inverse
+##        3. and return the inverse
+##     if the inverse exists it returns the inverse
 
-## Write a short comment describing this function
+## usage:
+##   cacheSolve(my_mat_obj)
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
